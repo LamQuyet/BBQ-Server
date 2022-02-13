@@ -22,6 +22,6 @@ db.connect();
 route(app)
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT|port, () => {
     console.log(`Example app listening at http://localhost:3000`)
 })
