@@ -5,7 +5,7 @@ async function connect() {
         await mongoose.connect('mongodb+srv://LamQuyet:lamquyet9x@cluster0.2i9lp.mongodb.net/BBQ',);
         console.log("Connected")
     } catch (error) {
-        console.log('Fail')
+        console.log('Failed')
     }
 
 }
