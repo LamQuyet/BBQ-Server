@@ -69,19 +69,19 @@ class BillController {
     }
 
     BillsToday(req, res) {
-        Bill.find({ $where: `return this.Time.toJSON().slice(0, 10) == '2022-02-09'` } , function (err, data) {
+        Bill.find({ '$where': `this.Time.toJSON().slice(0, 10) == '${req.body.Time}'` } , function (err, data) {
             if (!err) {
                 res.json(data)
             }
             else {
-                res.status(500).json({ error: 'FAIL' })
+                res.status(500).json(err)
             }
         })
     }
 
     ThisMonthBills(req, res) {
         console.log(Today)
-        Bill.find({ $where: `return this.Time.toJSON().slice(0, 7) == '${req.body.Time}'` } , function (err, data) {
+        Bill.find({ '$where': `this.Time.toJSON().slice(0, 7) == '${req.body.Time}'` } , function (err, data) {
             if (!err) {
                 res.json(data)
             }
@@ -93,7 +93,7 @@ class BillController {
 
     BillsYear(req, res) {
         console.log(req.body.Time)
-        Bill.find({ $where: `return this.Time.toJSON().slice(0, 4) == '${req.body.Time}'` } , function (err, data) {
+        Bill.find({ '$where': `this.Time.toJSON().slice(0, 4) == '${req.body.Time}'` } , function (err, data) {
             
             if (!err) {
                 res.json(data)
