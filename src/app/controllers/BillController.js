@@ -81,7 +81,7 @@ class BillController {
 
     ThisMonthBills(req, res) {
         console.log(Today)
-        Bill.find({ '$where': `this.Time.toJSON().slice(0, 7) == '${req.body.Time}'` } , function (err, data) {
+        Bill.find({ '$where': `this.Time.toJSON().slice(0, 7) == '${req.body.Time.toISOString()}'` } , function (err, data) {
             if (!err) {
                 res.json(data)
             }
