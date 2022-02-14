@@ -74,7 +74,7 @@ class BillController {
                 res.json(data)
             }
             else {
-                res.status(500).json(err)
+                res.status(500).json({ error: 'FAIL' })
             }
         })
     }
