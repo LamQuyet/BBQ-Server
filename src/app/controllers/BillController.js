@@ -69,7 +69,7 @@ class BillController {
     }
 
     BillsToday(req, res) {
-        Bill.find({ $where: `this.Time.toJSON().slice(0, 10) == '${req.body.Time}'` } , function (err, data) {
+        Bill.find({ $where: `return this.Time.toJSON().slice(0, 10) == '${req.body.Time}'` } , function (err, data) {
             if (!err) {
                 res.json(data)
             }
