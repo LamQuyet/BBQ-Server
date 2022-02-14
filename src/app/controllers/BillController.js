@@ -95,12 +95,7 @@ class BillController {
         console.log(req.body.Time)
         Bill.find({ '$where': `this.Time.toJSON().slice(0, 4) == '${req.body.Time}'` } , function (err, data) {
             
-            if (!err) {
-                res.json(data)
-            }
-            else {
-                res.status(500).json(err)
-            }
+            res.json(data)
         })
     }
 }
