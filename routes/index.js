@@ -8,5 +8,6 @@ function route(app) {
     app.use('/site', siteRoute)
     app.use('/account', accountRoute)
     app.use('/bill', billRouter)
+    app.get('/', function (req, res) { res.send('Hello'); });
 }
 module.exports = route;
