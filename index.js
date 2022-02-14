@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const route = require('./routes/index')
 var db = require('./src/config/db')
 const bodyParser = require('body-parser')
@@ -22,6 +22,6 @@ db.connect();
 route(app)
 
 
-app.listen(process.env.PORT|port, () => {
-    console.log(`Example app listening at http://localhost:3000`)
+app.listen(process.env.PORT|port, "0.0.0.0", () => {
+    console.log(`Example app listening at http://localhost:${port}`)
 })
